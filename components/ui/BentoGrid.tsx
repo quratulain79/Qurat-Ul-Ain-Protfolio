@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// CHANGED: Ab hum 'lottie-react' use kar rahe hain (Ye Next.js 14 compatible hai)
+import Lottie from "lottie-react";
 
 import { cn } from "@/lib/utils";
 
@@ -54,15 +54,6 @@ export const BentoGridItem = ({
   const rightLists = ["Flutter", "Next.js", "C++"];
 
   const [copied, setCopied] = useState(false);
-
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   const handleCopy = () => {
     const text = "quratulain0977@gmail.com";
@@ -121,7 +112,6 @@ export const BentoGridItem = ({
             {description}
           </div>
           
-          {/* CHANGE: ID 2 ke liye font size chota kiya hai (text-2xl) taake fit aye */}
           <div
             className={`font-sans font-bold z-20 ${
               id === 2 
@@ -134,7 +124,6 @@ export const BentoGridItem = ({
 
           {id === 2 && <GridGlobe />}
 
-          {/* Tech Stack Logic for ID 3 - TIGHT FIT */}
           {id === 3 && (
             <div className="flex gap-1 lg:gap-1 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-3">
@@ -171,7 +160,13 @@ export const BentoGridItem = ({
                   copied ? "block" : "block"
                 }`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {/* Updated Lottie Component */}
+                <Lottie 
+                  animationData={animationData}
+                  loop={copied}
+                  autoplay={copied}
+                  style={{ height: 200, width: 400 }}
+                />
               </div>
 
               <MagicButton

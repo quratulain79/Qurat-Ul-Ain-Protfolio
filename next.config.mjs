@@ -1,42 +1,16 @@
-import {withSentryConfig} from '@sentry/nextjs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ye settings Vercel ko bolti hain ke choti moti warnings par build fail na kare
+  // Ye Vercel ko bolta hai ke choti warnings par build na rokay
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // Ye zaroori hai taake Sanity ki images nazar ayen
+  images: {
+    domains: ['cdn.sanity.io'], 
+  },
 };
 
-export default withSentryConfig(nextConfig, {
-  // For all available options, see:
-  // https://github.com/getsentry/sentry-webpack-plugin#options
-
-  // Suppresses source map uploading logs during build
-  silent: true,
-  org: "javascript-mastery",
-  project: "javascript-nextjs",
-}, {
-  // For all available options, see:
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-
-  // Upload a larger set of source maps for prettier stack traces (increases build time)
-  widenClientFileUpload: true,
-
-  // Transpiles SDK to be compatible with IE11 (increases bundle size)
-  transpileClientSDK: true,
-
-  // tunnelRoute: "/monitoring",
-
-  // Hides source maps from generated client bundles
-  hideSourceMaps: true,
-
-  // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: true,
-
-  // Enables automatic instrumentation of Vercel Cron Monitors.
-  automaticVercelMonitors: true,
-});
+export default nextConfig;

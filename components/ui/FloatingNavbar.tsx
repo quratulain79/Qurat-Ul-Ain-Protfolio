@@ -46,14 +46,15 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          // FIX 1: 'max-w-[95vw]' lagaya hai taake screen se bahar na jaye.
-          // FIX 2: Padding aur Gap kam kar diya hai.
-          "flex max-w-[95vw] md:min-w-[70vw] lg:min-w-fit fixed z-[9999] top-5 inset-x-0 mx-auto px-4 py-3 rounded-xl border border-white/[0.1] shadow-xl items-center justify-center space-x-3 md:space-x-6",
+          // Container Settings:
+          // Mobile: Width fit content, padding thori kam.
+          // Desktop: Thora wide aur comfortable padding.
+          "flex max-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-5 py-3 rounded-full border border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
           className
         )}
         style={{
-          backdropFilter: "blur(20px) saturate(180%)",
-          backgroundColor: "rgba(17, 25, 40, 0.85)",
+          backdropFilter: "blur(16px) saturate(180%)",
+          backgroundColor: "rgba(17, 25, 40, 0.75)",
         }}
       >
         {navItems.map((navItem: any, idx: number) => (
@@ -64,12 +65,13 @@ export const FloatingNav = ({
               "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-purple-400 hover:text-purple-500 transition-colors"
             )}
           >
-            {/* FIX 3: Mobile par Icons ko HIDE kar diya (hidden sm:block) taake text fit aaye */}
-            <span className="hidden sm:block">{navItem.icon}</span>
-            
-            {/* FIX 4: Text size adjust kiya */}
-            <span className="text-[11px] md:text-sm font-medium !cursor-pointer whitespace-nowrap">
-              {navItem.name}
+            {/* MOBILE VIEW: Sirf Icon dikhega (Text hidden) */}
+            <span className="block sm:hidden text-xl">{navItem.icon}</span>
+
+            {/* DESKTOP VIEW: Icon chupa diya, Text + Icon style alag */}
+            <span className="hidden sm:flex text-sm font-medium cursor-pointer items-center gap-1">
+               <span className="text-base">{navItem.icon}</span> {/* Desktop icon */}
+               {navItem.name}
             </span>
           </Link>
         ))}

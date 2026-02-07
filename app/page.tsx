@@ -34,22 +34,21 @@ const Home = () => {
           <RecentProjects />
         </section>
 
-        {/* Clients Section */}
-        <section id="testimonials" className="scroll-mt-24">
-          <Clients />
-        </section>
-
         {/* Experience Section */}
         <section id="experience" className="scroll-mt-24">
           <Experience />
         </section>
 
         <Approach />
-        
+        {/* Clients Section */}
+        <section id="testimonials" className="scroll-mt-24">
+          <Clients />
+        </section>
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-24">
           <Footer />
         </section>
+
 
       </div>
     </main>

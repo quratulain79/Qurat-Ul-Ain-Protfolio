@@ -1,7 +1,11 @@
+// Is list mein jo bhi hoga, wo ab Navbar par show hoga
 export const navItems = [
   { name: "Home", link: "#home" },
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
+  { name: "Experience", link: "#experience" },
+  { name: "Approach", link: "#approach" },
+  { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -69,15 +73,11 @@ export const projects = [
     id: 3,
     title: "Unsplash Clone - Photo Gallery",
     des: "A responsive photo gallery application built using the Unsplash API to browse and search for high-resolution images.",
-    img: "/aaa.png", // Make sure file name matches public folder
+    img: "/aaa.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "https://github.com/quratulain79/UNSPLASH_Clone_Final/",
   },
-
 ];
-
-// data/index.ts file mein
-
 
 export const testimonials = [
   {
@@ -85,9 +85,9 @@ export const testimonials = [
       "Collaborating with Qurat Ul Ain was an absolute pleasure. Her professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Her enthusiasm for every facet of development truly stands out.",
     name: "Lecturer: MS. Bushra Mushtaq",
     title: "FYP Supervisor",
-    // Yahan se 'img' wali line bilkul hata di hai
   },
 ];
+
 export const companies = [
   {
     id: 1,
@@ -124,16 +124,15 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "AI Expert (Student)",
-    desc: "Developed a Lung Cancer Detection model using Deep Learning and integrated it with a mobile app.",
+    title: "AI Expert",
+    desc: "Developed an end-to-end AI healthcare solution. Designed a Deep Learning model using the IQ-OTH/NCCD dataset for accurate cancer detection. Built a cross-platform Flutter app to provide a seamless interface for model inference, focusing on medical data visualization and backend integration.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Flutter Developer",
-    desc: "Designed and developed cross-platform mobile applications for various semester projects.",
-    className: "md:col-span-2",
+    title: "Mobile App Developer",
+    desc: "I build cross-platform mobile applications using Flutter, focusing on responsive UI and smooth user experience. I integrate Firebase for authentication, real-time databases, and scalable backend services.",
     thumbnail: "/exp2.svg",
   },
   {
@@ -146,7 +145,7 @@ export const workExperience = [
   {
     id: 4,
     title: "Game Developer Intern",
-    desc: "Developed immersive game mechanics and level designs during my internship at Elite Tech Solution.",
+    desc: "Developed game mechanics and level designs during my internship at Elite Tech Solution.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
@@ -156,14 +155,11 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
-    // CHANGE: Added your GitHub link
     link: "https://github.com/quratulain79",
   },
   {
     id: 2,
     img: "/link.svg",
-    // CHANGE: Added your LinkedIn link
     link: "https://www.linkedin.com/in/quratulain79",
   },
-  // Twitter hata diya hai kyunke link nahi tha, Email button alag se hai
 ];

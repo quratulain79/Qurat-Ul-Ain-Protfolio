@@ -6,18 +6,20 @@ import { InfiniteMovingCards } from "./ui/InfiniteCards";
 
 const Clients = () => {
   return (
-    // CHANGE: 'py-20' -> 'py-5' for tight spacing
-    <div className="py-5" id="testimonials">
+    <div className="py-4" id="testimonials">
       <h1 className="heading">
         Kind words from
         <span className="text-purple"> satisfied clients</span>
       </h1>
 
-      {/* CHANGE: Removed extra top margins */}
-      <div className="flex flex-col items-center mt-5">
+      <div className="flex flex-col items-center mt-4">
         <div
-          // Height thori adjust ki taake extra space na le
-          className="h-[50vh] md:h-[25rem] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden"
+          /* 🔥 MAIN FIX:
+             ❌ 50vh removed
+             ✅ auto height on mobile
+             ✅ controlled height on desktop
+          */
+          className="h-auto md:h-[22rem] rounded-md flex antialiased items-center justify-center relative overflow-hidden"
         >
           <InfiniteMovingCards
             items={testimonials}

@@ -5,14 +5,15 @@ import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className="w-full py-5">
+    // CHANGE: Yahan id="approach" add kiya hai taake link kaam kare
+    <section id="approach" className="w-full py-20">
       <h1 className="heading">
         My <span className="text-purple">approach</span>
       </h1>
       
       <div className="mt-5 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         
-        {/* Phase 1: Updated Text */}
+        {/* Phase 1 */}
         <Card
           title="Planning & Strategy"
           icon={<AceternityIcon order="Phase 1" />}
@@ -24,7 +25,7 @@ const Approach = () => {
           />
         </Card>
 
-        {/* Phase 2: Updated Text */}
+        {/* Phase 2 */}
         <Card
           title="Development & Updates"
           icon={<AceternityIcon order="Phase 2" />}
@@ -41,7 +42,7 @@ const Approach = () => {
           />
         </Card>
 
-        {/* Phase 3: Updated Text */}
+        {/* Phase 3 */}
         <Card
           title="Deployment & Launch"
           icon={<AceternityIcon order="Phase 3" />}

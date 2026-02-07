@@ -40,11 +40,9 @@ export const FloatingNav = ({
     }
   });
 
-  // Zabardasti "Testimonials" ko list se nikaal rahe hain
-  const cleanNavItems = navItems.filter((item) => item.name !== "Testimonials");
-
   return (
     <>
+      {/* Desktop & Mobile Main Bar */}
       <AnimatePresence mode="wait">
         <motion.div
           initial={{ opacity: 1, y: -100 }}
@@ -59,9 +57,9 @@ export const FloatingNav = ({
             backgroundColor: "rgba(17, 25, 40, 0.8)",
           }}
         >
-          {/* Desktop View - Uses cleanNavItems */}
+          {/* Desktop Links (Hidden on Mobile) */}
           <div className="hidden md:flex items-center space-x-4">
-            {cleanNavItems.map((navItem: any, idx: number) => (
+            {navItems.map((navItem: any, idx: number) => (
               <Link
                 key={`link=${idx}`}
                 href={navItem.link}
@@ -74,7 +72,7 @@ export const FloatingNav = ({
             ))}
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Button (Hamburger) */}
           <div className="md:hidden flex items-center">
             <span className="text-white text-sm font-bold mr-2">Menu</span>
             <button 
@@ -87,7 +85,7 @@ export const FloatingNav = ({
         </motion.div>
       </AnimatePresence>
 
-      {/* Mobile Sidebar - Uses cleanNavItems */}
+      {/* Mobile Sidebar (Drawer) */}
       <AnimatePresence>
         {open && (
           <>
@@ -113,7 +111,7 @@ export const FloatingNav = ({
               </div>
 
               <div className="flex flex-col space-y-6">
-                {cleanNavItems.map((navItem: any, idx: number) => (
+                {navItems.map((navItem: any, idx: number) => (
                   <Link
                     key={`mobile-link=${idx}`}
                     href={navItem.link}

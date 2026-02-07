@@ -1,15 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Ye Vercel ko bolta hai ke choti warnings par build na rokay
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Ye zaroori hai taake Sanity ki images nazar ayen
   images: {
-    domains: ['cdn.sanity.io'], 
+    // Yahan humne wo saare links allow kar diye hain jahan se images aa sakti hain
+    domains: [
+      'cdn.sanity.io', 
+      'images.unsplash.com', 
+      'assets.aceternity.com',
+      'ui.aceternity.com',
+      'pbs.twimg.com',
+      'upload.wikimedia.org' 
+    ],
   },
 };
 

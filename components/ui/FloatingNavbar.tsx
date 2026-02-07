@@ -46,7 +46,9 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[9999] top-5 inset-x-0 mx-auto px-10 py-4 rounded-xl border border-white/[0.1] shadow-xl items-center justify-center space-x-6",
+          // CHANGED: Padding 'px-10' se 'px-3' kiya mobile ke liye taake jagah banay
+          // CHANGED: Gap 'space-x-6' se 'space-x-3' kiya mobile ke liye
+          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[9999] top-5 inset-x-0 mx-auto px-3 py-3 md:px-10 md:py-4 rounded-xl border border-white/[0.1] shadow-xl items-center justify-center space-x-3 md:space-x-6",
           className
         )}
         style={{
@@ -61,7 +63,8 @@ export const FloatingNav = ({
             className="relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-purple-400 hover:text-purple-500 transition-colors"
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="text-sm font-medium !cursor-pointer">{navItem.name}</span>
+            {/* CHANGED: Text size chota kiya (10px) taake mobile par fit aye */}
+            <span className="text-[10px] md:text-sm font-medium !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
       </motion.div>

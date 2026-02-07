@@ -79,7 +79,7 @@
 
   /* IMPORTANT CHANGE: Ye code navbar ke overlap ko rokta hai */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     scroll-padding-top: 120px; /* Ye gap Navbar aur content ke darmiyan rahega */
   }
 }
@@ -89,6 +89,18 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
-html {
-  scroll-behavior: smooth !important;
+
+/* ========================================= */
+/* MOBILE NAVBAR SCROLLBAR HIDING (Magic)   */
+/* ========================================= */
+
+/* Chrome, Safari aur Opera ke liye scrollbar chupana */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* IE, Edge aur Firefox ke liye scrollbar chupana */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

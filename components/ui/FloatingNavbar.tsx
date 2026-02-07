@@ -46,10 +46,11 @@ export const FloatingNav = ({
         animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          // Container Settings:
-          // Mobile: Width fit content, padding thori kam.
-          // Desktop: Thora wide aur comfortable padding.
-          "flex max-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-5 py-3 rounded-full border border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
+          // SCROLL SETTINGS:
+          // max-w-[90vw]: Mobile par width limit ki.
+          // overflow-x-auto: Scroll on karne ke liye.
+          // no-scrollbar: Scrollbar chupane ke liye (Step 2 mein CSS dalenge).
+          "flex fixed z-[5000] top-10 inset-x-0 mx-auto px-5 py-3 rounded-full border border-white/[0.2] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-start md:justify-center space-x-4 overflow-x-auto max-w-[90vw] md:max-w-fit no-scrollbar",
           className
         )}
         style={{
@@ -62,17 +63,12 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-purple-400 hover:text-purple-500 transition-colors"
+              // whitespace-nowrap: Text ko tootne se bachane ke liye (ek line mein rahega)
+              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-purple-400 hover:text-purple-500 transition-colors whitespace-nowrap"
             )}
           >
-            {/* MOBILE VIEW: Sirf Icon dikhega (Text hidden) */}
-            <span className="block sm:hidden text-xl">{navItem.icon}</span>
-
-            {/* DESKTOP VIEW: Icon chupa diya, Text + Icon style alag */}
-            <span className="hidden sm:flex text-sm font-medium cursor-pointer items-center gap-1">
-               <span className="text-base">{navItem.icon}</span> {/* Desktop icon */}
-               {navItem.name}
-            </span>
+            <span className="block sm:hidden">{navItem.icon}</span>
+            <span className="text-sm cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
       </motion.div>

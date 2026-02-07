@@ -16,11 +16,9 @@ const RecentProjects = () => {
         {projects.map((item) => (
           <div
             key={item.id}
-            /* ✅ Mobile: auto height
-               ✅ Desktop: controlled height
-               ❌ No stretch */
             className="lg:min-h-[24rem] h-auto flex items-start justify-center sm:w-[440px] w-[92vw]"
           >
+            {/* PinContainer handles the overall card click/hover effect */}
             <PinContainer title={item.link} href={item.link}>
               
               {/* Image Box */}
@@ -71,11 +69,17 @@ const RecentProjects = () => {
                   ))}
                 </div>
 
+                {/* ✅ Link Fixed: Ab ye clickable hai aur new tab mein khulega */}
                 <div className="flex justify-center items-center">
-                  <p className="flex lg:text-lg md:text-xs text-sm text-purple">
+                  <a 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex lg:text-lg md:text-xs text-sm text-purple hover:underline"
+                  >
                     Check Live Site
-                  </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                    <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  </a>
                 </div>
               </div>
 
